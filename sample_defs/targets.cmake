@@ -86,25 +86,25 @@ SET(SPACECRAFT_ID 0x42)
 # and must be loaded explicitly via startup script or command.
 # This list is effectively appended to every TGTx_APPLIST in targets.cmake.
 # Example:
-list(APPEND MISSION_GLOBAL_APPLIST sample_app sample_lib)
+list(APPEND MISSION_GLOBAL_STATIC_APPLIST sample_app sample_lib)
 
-LIST(APPEND MISSION_GLOBAL_APPLIST cf)
-LIST(APPEND MISSION_GLOBAL_APPLIST hs)
-LIST(APPEND MISSION_GLOBAL_APPLIST md)
-LIST(APPEND MISSION_GLOBAL_APPLIST mm)
-LIST(APPEND MISSION_GLOBAL_APPLIST cs)
-LIST(APPEND MISSION_GLOBAL_APPLIST fm)
-LIST(APPEND MISSION_GLOBAL_APPLIST lc)
-LIST(APPEND MISSION_GLOBAL_APPLIST sc)
-LIST(APPEND MISSION_GLOBAL_APPLIST ds)
-LIST(APPEND MISSION_GLOBAL_APPLIST hk)
+LIST(APPEND MISSION_GLOBAL_STATIC_APPLIST cf)
+LIST(APPEND MISSION_GLOBAL_STATIC_APPLIST hs)
+LIST(APPEND MISSION_GLOBAL_STATIC_APPLIST md)
+LIST(APPEND MISSION_GLOBAL_STATIC_APPLIST mm)
+LIST(APPEND MISSION_GLOBAL_STATIC_APPLIST cs)
+LIST(APPEND MISSION_GLOBAL_STATIC_APPLIST fm)
+LIST(APPEND MISSION_GLOBAL_STATIC_APPLIST lc)
+LIST(APPEND MISSION_GLOBAL_STATIC_APPLIST sc)
+LIST(APPEND MISSION_GLOBAL_STATIC_APPLIST ds)
+LIST(APPEND MISSION_GLOBAL_STATIC_APPLIST hk)
 
 # Some apps do not have EDS support yet.
 # These should not be included by default when building with EDS.
 if (NOT CFE_EDS_ENABLED AND SIMULATION STREQUAL "native")
-    LIST(APPEND MISSION_GLOBAL_APPLIST sbn)
-    LIST(APPEND MISSION_GLOBAL_APPLIST sbn_udp)
-    LIST(APPEND MISSION_GLOBAL_APPLIST sbn_f_remap)
+    LIST(APPEND MISSION_GLOBAL_STATIC_APPLIST sbn)
+    LIST(APPEND MISSION_GLOBAL_STATIC_APPLIST sbn_udp)
+    LIST(APPEND MISSION_GLOBAL_STATIC_APPLIST sbn_f_remap)
 endif()
 
 # The "MISSION_GLOBAL_STATIC_APPLIST" is similar to MISSION_GLOBAL_APPLIST
@@ -130,7 +130,7 @@ endif ()
 # all the CFS apps.  RISCV-64 is selected as the platform
 # to line up with expectations of next-gen flight hardware.
 SET(cpu1_PROCESSORID 1)
-SET(cpu1_APPLIST ci_lab to_lab sch_lab)
+SET(cpu1_STATIC_APPLIST ci_lab to_lab sch_lab)
 SET(cpu1_SYSTEM riscv64-poky-linux)
 
 # The "cpu2" is a contrived example of a helper system,
@@ -138,7 +138,7 @@ SET(cpu1_SYSTEM riscv64-poky-linux)
 # a heterogeneous deployment where a big- and little-
 # endian processor must work together in the same system.
 SET(cpu2_PROCESSORID 2)
-SET(cpu2_APPLIST ci_lab to_lab sch_lab)
+SET(cpu2_STATIC_APPLIST ci_lab to_lab sch_lab)
 SET(cpu2_SYSTEM mips32r2-poky-linux)
 
 # the EDS build always uses runtime mids, so in this configuration
@@ -147,3 +147,23 @@ if (CFE_EDS_ENABLED)
    set(cpu1_PLATFORM default)
    set(cpu2_PLATFORM default)
 endif (CFE_EDS_ENABLED)
+
+SET(cpu1_STATIC_SYMLIST
+    "SAMPLE_LIB_Init,SAMPLE_LIB"
+    "SAMPLE_APP_Main,SAMPLE_APP"
+    "CI_LAB_AppMain,CI_LAB"
+    "TO_LAB_AppMain,TO_LAB"
+    "SCH_LAB_AppMain,SCH_LAB"
+    "LC_AppMain,LC"
+    "CF_AppMain,CF"
+    "DS_AppMain,DS"
+    "FM_AppMain,FM"
+    "HK_AppMain,HK"
+    "HS_AppMain,HS"
+    "MM_AppMain,MM"
+    "SC_AppMain,SC"
+    "MD_AppMain,MD"
+    "CS_AppMain,CS")
+ 
+ADD_DEFINITIONS(-DCONFIG_ETH_IP=\"192.168.1.68\")
+ADD_DEFINITIONS(-D'CONFIG_ETH_MAC={0x00, 0x80, 0x7F, 0x22, 0x61, 0x7B}')

@@ -36,3 +36,5 @@ set(OSAL_CONFIG_DEBUG_PRINTF TRUE)
 
 # The maximum number of mutexes to support
 set(OSAL_CONFIG_MAX_MUTEXES 40)
+
+set(OSAL_CONFIG_INCLUDE_DYNAMIC_LOADER FALSE)

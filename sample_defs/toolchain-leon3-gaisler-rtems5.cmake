@@ -38,7 +38,8 @@ ADD_DEFINITIONS(-DOS_RTEMS_5)
 # This is tied to the OSAL-BSP and PSP implementation so generally cannot
 # be switched on a specific OSAL/PSP platform without modifications.
 set(RTEMS_DYNAMIC_LOAD      TRUE)
-set(RTEMS_INCLUDE_TARFS     TRUE)
+# set(RTEMS_INCLUDE_TARFS     TRUE)
+set(RTEMS_EXTERNAL_KERNEL   TRUE)
 set(RTEMS_NO_CMDLINE        TRUE)
 
 # Default to no shell (flight like and batch testing) but allow override from make line
@@ -64,7 +65,7 @@ set(CMAKE_C_COMPILE_OPTIONS_PIC -fno-exceptions -fno-asynchronous-unwind-tables)
 set(XTOOL_BASE_DIR "/opt")
 
 # specify the cross compiler - adjust accord to compiler installation
-SET(TOOLCHAIN_VARIANT "rcc-1.3.2-gcc"
+SET(TOOLCHAIN_VARIANT "rcc-1.3.1-gcc"
     CACHE STRING "Specific compiler variant to use")
 
 SET(RTEMS_TOOLS_PREFIX "${XTOOL_BASE_DIR}/${TOOLCHAIN_VARIANT}"
