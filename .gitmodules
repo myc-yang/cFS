@@ -73,3 +73,6 @@
 [submodule "tools/commandline-tools"]
 	path = tools/commandline-tools
 	url = https://github.com/nasa/cfs-commandline-tools.git
+[submodule "libs/hammer_parse"]
+	path = libs/hammer_parse
+	url = git@developer.nasa.gov:myang/hammer_parse.git

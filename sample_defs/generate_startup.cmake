@@ -3,12 +3,14 @@ function (generate_cfs_startup_script CFS_INSTALL_DIR)
 
     # These apps should always be present
     file (WRITE ${STARTUP_FILE}
-        "CFE_LIB, cfe_assert,  CFE_Assert_LibInit, ASSERT_LIB,    0,   0,     0x0, 0;\n"
-        "CFE_LIB, sample_lib,  SAMPLE_LIB_Init,    SAMPLE_LIB,    0,   0,     0x0, 0;\n"
-        "CFE_APP, sch_lab,     SCH_LAB_AppMain,    SCH_LAB,      35,   32768, 0x0, 0;\n"
-        "CFE_APP, ci_lab,      CI_LAB_AppMain,     CI_LAB,       40,   32768, 0x0, 0;\n"
-        "CFE_APP, to_lab,      TO_LAB_AppMain,     TO_LAB,       45,   32768, 0x0, 0;\n"
-        "CFE_APP, sample_app,  SAMPLE_APP_Main,    SAMPLE_APP,   50,   32768, 0x0, 0;\n"
+        "CFE_LIB, cfe_assert,   CFE_Assert_LibInit, ASSERT_LIB,   0,    0,     0x0, 0;\n"
+        "CFE_LIB, sample_lib,   SAMPLE_LIB_Init,    SAMPLE_LIB,   0,    0,     0x0, 0;\n"
+        "CFE_LIB, hammer_parse, HAMMER_PARSE_Init,  HAMMER_PARSE, 0,    0,     0x0, 0;\n"
+        "CFE_APP, sch_lab,      SCH_LAB_AppMain,    SCH_LAB,      35,   32768, 0x0, 0;\n"
+        "CFE_APP, ci_lab,       CI_LAB_AppMain,     CI_LAB,       40,   32768, 0x0, 0;\n"
+        "CFE_APP, to_lab,       TO_LAB_AppMain,     TO_LAB,       45,   32768, 0x0, 0;\n"
+        "CFE_APP, sample_app,   SAMPLE_APP_Main,    SAMPLE_APP,   50,   32768, 0x0, 0;\n"
+
     )
 
     # the rest of the apps can vary by config
