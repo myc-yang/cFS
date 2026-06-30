@@ -131,7 +131,7 @@ endif ()
 # to line up with expectations of next-gen flight hardware.
 SET(cpu1_PROCESSORID 1)
 SET(cpu1_STATIC_APPLIST ci_lab to_lab sch_lab)
-SET(cpu1_SYSTEM riscv64-poky-linux)
+SET(cpu1_SYSTEM leon3-gaisler-rtems5)
 
 # The "cpu2" is a contrived example of a helper system,
 # using a big-endian processor by default.  This emulates
@@ -167,3 +167,6 @@ SET(cpu1_STATIC_SYMLIST
  
 ADD_DEFINITIONS(-DCONFIG_ETH_IP=\"192.168.1.68\")
 ADD_DEFINITIONS(-D'CONFIG_ETH_MAC={0x00, 0x80, 0x7F, 0x22, 0x61, 0x7B}')
+
+# LIST(REMOVE_ITEM MISSION_GLOBAL_APPLIST cfe_assert)
+LIST(REMOVE_ITEM MISSION_GLOBAL_APPLIST cfe_testcase)
