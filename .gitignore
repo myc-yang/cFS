@@ -1,2 +1,10 @@
 /build*/
-
+*.sarif
+/relevant_queries
+/.vscode/
+codesonar_582_coding_standards*
+cFS.cc.c.64.conf
+cFS.conf
+cFS.prj
+cFS.prj_files/
+copy_relevant_queries.sh
