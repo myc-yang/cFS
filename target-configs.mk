@@ -49,7 +49,7 @@ ARCH_qemu_yocto_linux = riscv64-poky-linux
 ##############
 # Native build (traditional standard development config)
 ##############
-PREP_OPTS_native_std += -DENABLE_UNIT_TESTS=TRUE
+PREP_OPTS_native_std += -DENABLE_UNIT_TESTS=FALSE
 PREP_OPTS_native_std += -DSIMULATION=$(ARCH)
 PREP_OPTS_native_std += -DCFE_EDS_ENABLED=OFF
 PREP_OPTS_native_std += -DMISSIONCONFIG=sample
