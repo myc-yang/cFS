@@ -1,7 +1,7 @@
 /************************************************************************
- * NASA Docket No. GSC-18,719-1, and identified as “core Flight System: Bootes”
+ * NASA Docket No. GSC-19,200-1, and identified as "cFS Draco"
  *
- * Copyright (c) 2020 United States Government as represented by the
+ * Copyright (c) 2023 United States Government as represented by the
  * Administrator of the National Aeronautics and Space Administration.
  * All Rights Reserved.
  *
@@ -54,6 +54,7 @@
 #define CFE_MISSION_TIME_LOCAL1HZTASK_PERF_ID 10 /**< \brief Performance ID for 1 Hz Local Task */
 #define CFE_MISSION_TIME_TONE1HZTASK_PERF_ID  11 /**< \brief Performance ID for 1 Hz Tone Task */
 
+#define CFE_MISSION_TA_MAIN_PERF_ID 12 /**< \brief Performance ID for Task Affinity Task */
 /** \} */
 
 #endif /* SAMPLE_PERFIDS_H */
