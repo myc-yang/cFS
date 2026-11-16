@@ -8,3 +8,4 @@ cFS.conf
 cFS.prj
 cFS.prj_files/
 copy_relevant_queries.sh
+!cfs-sarif.sarif
